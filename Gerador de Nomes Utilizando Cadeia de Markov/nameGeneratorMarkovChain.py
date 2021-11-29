@@ -15,8 +15,6 @@ def printName(l, n, A, translatorLN, translatorNL):
     seed = 41574574571 + time.gmtime().tm_sec + \
         (time.gmtime().tm_min*60) + (time.gmtime().tm_hour*3600)
 
-    randomNumber = seed
-
     # Índice da primeira letra
     index = translatorLN[l]
 
@@ -27,7 +25,9 @@ def printName(l, n, A, translatorLN, translatorNL):
             index = translatorLN[l]
 
         pre, cur = 0, 0
-        randomNumber = abs(MLGC(m, a, randomNumber)) % 100
+        seed = abs(MLGC(m, a, seed))
+
+        randomNumber = seed % 100
 
         for j in range(26):
             cur += A[index][j]
