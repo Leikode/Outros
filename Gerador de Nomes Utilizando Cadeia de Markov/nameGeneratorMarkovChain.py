@@ -110,19 +110,20 @@ def main():
     printName(l, n, A, translatorLN, translatorNL)
     print()
 
-    time.sleep(2)
+    print("Aperte enter para continuar...")
+    input()
 
     A = copy.deepcopy(markovMatrix)
 
     # Multiplicação da matriz com as probabilidades por ela mesma
-    for i in range(10):
+    for i in range(8):
         A = multMatrix(A)
 
     print("As probabilidades individuais de cada letra são as seguintes: ")
 
     for i in range(26):
         print(chr(i + 65) + ": " + str(A[0][i]))
-    print("Probabilidade total: " + str(round(sum(A[0]), 6)))
+    print("Probabilidade total: " + str(round(sum(A[0]), 3)))
 
 
 if __name__ == '__main__':
